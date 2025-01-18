@@ -4,13 +4,14 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+# Sample web services/application
 @app.route('/status', methods=['GET'])
 def status():
     return 'Flask application is up and running!'
 
 @app.route('/greet', methods=['GET'])
 def greet_user():
-    return jsonify(message='Hey, Cohere! My name is Brian')
+    return jsonify(message='Hey, Cohere! My name is Brian.')
 
 @app.route('/ping', methods=['GET'])
 def ping_server():

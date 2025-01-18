@@ -2,6 +2,14 @@
 
 This guide will walk you through the process of cloning, setting up, and running the Flask-based reverse proxy application.
 
+## Step 0: Understanding this POC
+
+This POC will have two main files: router.py and client.py. Router.py will act as our reverse proxy service and client.py will act as our web service. We will run both services on their respective ports (8100 & 5001).
+
+Requests made to the reverse proxy (port 8100) will be redirected to the web server (port 5001). The respective responses from the web server will then get directred back to the client. The same pattern flow is applied for all api standard request types GET, POST, PUT, DELETE. Thus, this will facilitate the basic logic of a reverse proxy. 
+
+This skeleton code can be used to explore the basic priciples, applications and benefits of a reverse proxy. Some improvements (scalability and security) that can be built from this would include load balancing, caching, and encryption.
+
 ## Prerequisites
 
 Ensure you have the following installed:
@@ -54,13 +62,14 @@ Once the environment is set up, you can run the Flask application locally. Two t
 python src/reverse_proxy/router.py
 ```
 
-1. Run the sample client application on terminal 2:
+1. Run the sample service application on terminal 2:
 ```bash
-python src/utils/client.py
+python src/utils/service.py
 ```
 
 ## Step 4: Test the Application
-### Get:
+
+### GET:
 ```bash
 curl http://localhost:8100/status
 ```
@@ -68,7 +77,7 @@ curl http://localhost:8100/status
 curl http://localhost:8100/greet
 ```
 
-### Post:
+### POST:
 ```bash
 curl -X POST http://localhost:8100/echo \
      -H "Content-Type: application/json" \
@@ -81,14 +90,14 @@ curl -X POST http://localhost:8100/form-submit \
      -F "key2=value2"
 ```
 
-### Put:
+### PUT:
 ```bash
 curl -X PUT http://localhost:8100/update-message \
      -H "Content-Type: application/json" \
      -d '{"message": "Some new message"}'
 ```
 
-### Delete:
+### DELETE:
 ```bash
 curl -X DELETE http://localhost:8100/delete-item/123 \
      -H "Content-Type: application/json" \
