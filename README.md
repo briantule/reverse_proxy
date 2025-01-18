@@ -9,7 +9,6 @@ Ensure you have the following installed:
 - **Git**: To clone the repository
 - **Python 3.x**: To run the application
 - **pip**: To install dependencies
-- A reverse proxy server (e.g., **Nginx** or **Apache**) for production environments (optional)
 
 ## Step 1: Clone the Repository
 
