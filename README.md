@@ -16,12 +16,12 @@ Ensure you have the following installed:
 Clone the repository to your local machine using the following command:
 
 ```bash
-git clone https://your-repository-url.git
+git clone git@github.com:briantule/reverse_proxy.git
 ```
 
 Navigate to the project directory:
 ```bash
-cd reverse_proxy_application
+cd reverse_proxy
 ```
 
 ## Step 2: Set Up the Virtual Environment
