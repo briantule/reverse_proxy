@@ -125,3 +125,17 @@ From a systems design aspect, there are several limitations including:
 - **Authentication and Authorization:** This sample proxy currently does not support/enforce any form of authentication or authorization. Technically, anyone who has access to this proxy will be able to make requests. In an applied environemnt, this poses risks on exposeing sensitive data or misuse.
 
 ## How would you scale this?
+There are several ways in which this application can be scaled. Although this is more of a proof of concept application, we can think beyond the scope exploring how we can handle increased load, reliability, and maintainence. Some steps I may take include:
+
+- **Horizontal Scaling:** This POC is meant to be run on just a single system. In production/professional environments, I would look to deploy multiple instances of this reverse proxy so that multiple requests could be handled concurrently recuding the stress on a particular server. 
+- **Load Balancing:** This builds on with horizontal scaling, as I would look to implement mechanisms to effectively distribute requests across the multiple servers running this reverse proxy. This would reduce the load/stress towards an individual server increasing the reliability as we increase the amount of requests made.
+- **Caching:** Another way in which we can reduce the load on our server would be to introduce caching. Frequently requested data can be stored for quicker response times again taking away stress from the proxy level of this system.
+- **Rate Limiting:** Scaling also means that we should implement methods to protect our system from failing when the load size as increase on it. Throttling/Rate limiting reuqests is a great way for us to protect our system ensuring availability and fair use of its resources. 
+
+## How would you make it more secure?
+There are a lot of methods in which we can make our reverse proxy more secure. These methods would be used to ensure that our data is being protected from each requests and our services are being protected from abuse. Some potential solutions I would look to implement in the future include:
+
+- **Authentication and Authorization:** One of the most simplests ways in which we can make this more secure would be to integrate forms of authentication and authorization. We would be able to control and monitor who has access to our services and data.
+- **Logging/Monitoring:** Logging would be really beneficial especially with the implemntation of authentication and authorization. Some applications of this include being able to view all authentication attempts, monitoring any suspicious request attempts or patterns or detecting any sensitive information such as secrests, tokens, etc.
+- **Encription:** Encripting all of our communication would provide the extra layer of projection to our system as this would ensure that the data can not be intercepted by attackers during transit.
+- **Rate Limiting:** Mentioned in the previous question not only would rate limiting project our system and increase the availability of our system, it also projects our proxy from potential abuse and DoS attacks.
