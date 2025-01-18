@@ -53,7 +53,6 @@ def deleteproxy(path):
     if request.method == 'DELETE':
         print(f"Forwarding DELETE request to: {SITE_NAME}{path}")
         
-        # Ensure no content type is set unless needed
         resp = requests.delete(f'{SITE_NAME}{path}', json=request.get_json() if request.get_json() else None)
 
         exclude_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
