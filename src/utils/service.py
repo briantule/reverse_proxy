@@ -13,10 +13,6 @@ def status():
 def greet_user():
     return jsonify(message='Hey, Cohere! My name is Brian.')
 
-@app.route('/ping', methods=['GET'])
-def ping_server():
-    return jsonify(ping='pong')
-
 @app.route('/echo', methods=['POST'])
 def echo():
     data = request.get_json()

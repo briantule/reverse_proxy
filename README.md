@@ -68,22 +68,78 @@ python3 src/utils/service.py
 ```
 
 ## Step 4: Test the Application
+With the system running, feel free to use the sample curl commands (in terminal) or resort to other methods for making these API calls such as browser or Postman.
 
 ### GET:
+1. **Status Endpoint**
+- **Route:** `/status`  
+- **Method:** `GET`  
+- **Description:** Returns a simple message confirming the Flask application is running.  
+- **Response Example:**
+```json
+{
+  "message": "Flask application is up and running!"
+}
+```
+- **Curl Example:**
 ```bash
 curl http://localhost:8100/status
 ```
+
+2. **Greet Endpoint**
+- **Route:** `/greet`  
+- **Method:** `GET`  
+- **Description:** Returns a greeting message in JSON format.  
+- **Response Example:**
+```json
+{
+  "message": "Hey, Cohere! My name is Brian."
+}
+```
+- **Curl Example:**
 ```bash
 curl http://localhost:8100/greet
 ```
 
 ### POST:
+1. **Echo Endpoint**
+- **Route:** `/echo`  
+- **Method:** `POST`  
+- **Description:** Accepts a JSON payload and returns the same payload in the response.
+- **Request Example:** 
+```json
+{
+  "key": "value"
+}
+```
+- **Response Example:**
+```json
+{
+  "key": "value"
+}
+```
+- **Curl Example:**
 ```bash
 curl -X POST http://localhost:8100/echo \
      -H "Content-Type: application/json" \
      -d '{"key": "value"}'
 ```
 
+2. **Form Submit Endpoint**
+- **Route:** `/form-submit`  
+- **Method:** `POST`  
+- **Description:** Accepts form data and returns the submitted data in the response.
+- **Request Example:** 
+key1=value1,
+key2=value2
+- **Response Example:**
+```json
+{
+  "key1": "value1",
+  "key2": "value2"
+}
+```
+- **Curl Example:**
 ```bash
 curl -X POST http://localhost:8100/form-submit \
      -F "key1=value1" \
@@ -91,6 +147,23 @@ curl -X POST http://localhost:8100/form-submit \
 ```
 
 ### PUT:
+1. **Update Message Endpoint**
+- **Route:** `/update-message`  
+- **Method:** `PUT`  
+- **Description:** Updates a message based on the provided JSON payload and returns the updated message in the response.
+- **Request Example:** 
+```json
+{
+  "message": "Some new message"
+}
+```
+- **Response Example:**
+```json
+{
+  "updated_message": "Some new message"
+}
+```
+- **Curl Example:**
 ```bash
 curl -X PUT http://localhost:8100/update-message \
      -H "Content-Type: application/json" \
@@ -98,6 +171,26 @@ curl -X PUT http://localhost:8100/update-message \
 ```
 
 ### DELETE:
+1. **Delete Item Endpoint**
+- **Route:** `/delete-item/<item_id>`  
+- **Method:** `DELETE`  
+- **Description:** Deletes the specified item by its item_id and accepts an optional JSON payload with a reason for deletion. Returns a confirmation message.
+- **Request Example:** 
+  - **URL Parameter:** item_id = 123
+  - **JSON Payload:**
+```json
+{
+  "reason": "A solid reason"
+}
+```
+- **Response Example:**
+```json
+{
+  "item_id": 123,
+  "status": "deleted",
+  "reason": "A solid reason"
+}
+```
 ```bash
 curl -X DELETE http://localhost:8100/delete-item/123 \
      -H "Content-Type: application/json" \
