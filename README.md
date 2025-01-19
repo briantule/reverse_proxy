@@ -86,7 +86,7 @@ With the system running, feel free to use the sample curl commands (in terminal)
 curl http://localhost:8100/status
 ```
 
-1. **Greet Endpoint**
+2. **Greet Endpoint**
 - **Route:** `/greet`  
 - **Method:** `GET`  
 - **Description:** Returns a greeting message in JSON format.  
