@@ -36,7 +36,7 @@ It is recommended to use a virtual environment to manage dependencies for this a
 1. Create a virtual environment:
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 ```
 
 2. Activate the virtual environment:
@@ -52,19 +52,19 @@ venv\Scripts\activate
 
 3. Install the dependencies
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Step 3: Running the Application
 Once the environment is set up, you can run the Flask application locally. Two terminals will be needed to test.
 1. Run the reverse proxy application on terminal 1:
 ```bash
-python src/reverse_proxy/router.py
+python3 src/reverse_proxy/router.py
 ```
 
-1. Run the sample service application on terminal 2:
+2. Run the sample service application on terminal 2:
 ```bash
-python src/utils/service.py
+python3 src/utils/service.py
 ```
 
 ## Step 4: Test the Application
