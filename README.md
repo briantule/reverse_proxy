@@ -75,13 +75,18 @@ With the system running, feel free to use the sample curl commands (in terminal)
 - **Route:** `/status`  
 - **Method:** `GET`  
 - **Description:** Returns a simple message confirming the Flask application is running.  
-- **Response Example:** Flask application is up and running!
+- **Response Example:**
+```json
+{
+  "message": "Flask application is up and running!"
+}
+```
 - **Curl Example:**
 ```bash
 curl http://localhost:8100/status
 ```
 
-2. **Greet Endpoint**
+1. **Greet Endpoint**
 - **Route:** `/greet`  
 - **Method:** `GET`  
 - **Description:** Returns a greeting message in JSON format.  
