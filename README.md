@@ -55,6 +55,14 @@ venv\Scripts\activate
 pip3 install -r requirements.txt
 ```
 
+4. Install flask (if necessary)
+```bash
+pip3 install flask
+```
+```bash
+pip3 install flask-cors
+```
+
 ## Step 3: Running the Application
 Once the environment is set up, you can run the Flask application locally. Two terminals will be needed to test.
 1. Run the reverse proxy application on terminal 1:
